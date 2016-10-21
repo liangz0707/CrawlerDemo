@@ -53,9 +53,8 @@ ROBOTSTXT_OBEY = True
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    'spycraw.middlewares.MyCustomDownloaderMiddleware': None,
-    'spycraw.middleware.RanodomUAMiddleware':400,
-    'spycraw.middleware.PrintUAMiddleware':401,
+    'spycraw.middlewares.RanodomUAMiddleware':400,
+    'spycraw.middlewares.PrintUAMiddleware':401,
 }
 
 # Enable or disable extensions
@@ -66,9 +65,11 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'spycraw.pipelines.SomePipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'spycraw.pipelines.MongoPipeline': 300,
+}
+MONGO_URI = "127.0.0.1:27017"
+MONGO_DATABASE = "quibai"
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

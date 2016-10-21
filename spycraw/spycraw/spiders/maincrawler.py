@@ -1,17 +1,18 @@
+#-*-coding:utf-8-*-
 __author__ = 'liangz14'
 # s
 import scrapy
-from pymongo import MongoClient
-
+from spycraw.items import SpycrawItem
 class Mycraw(scrapy.Spider):
     name='mycrawler'
     start_urls = [
         "http://www.qiushibaike.com/",
+        "http://www.qiushibaike.com/",
+        "http://www.qiushibaike.com/",
     ]
-    c = MongoClient()
 
     def parse(self, response):
-
+        yield SpycrawItem(a='a',b='b')
         print response.xpath('//div[@class="content"]').extract();
 
     def db_test(self):
