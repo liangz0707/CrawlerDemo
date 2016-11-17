@@ -1,4 +1,4 @@
-#-*-coding:utf-8-*-
+# -*-coding:utf-8-*-
 __author__ = 'liangz14'
 # s
 import scrapy
@@ -13,13 +13,14 @@ class Mycraw(scrapy.Spider):
 
     def parse(self, response):
         yield SpycrawItem(a='a',b='b')
+        # response.urljoin(herf)
         print response.xpath('//div[@class="content"]').extract();
 
     def db_test(self):
         #from scrapy.shell import inspect_response
         #inspect_response(response,self)
-        # »ñÈ¡Êý¾Ý¿â C.db_name
-        # »ñÈ¡±í.C.db_name.collection_name;
+        # ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ý¿ï¿½ C.db_name
+        # ï¿½ï¿½È¡ï¿½ï¿½.C.db_name.collection_name;
         db = self.c.test;
         db.test.count*({'x':1})
         result = db.test.insert_one({"x":1})

@@ -9,8 +9,8 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'spycraw'
-
+#BOT_NAME = 'spycraw'
+BOT_NAME = 'scrapybot'
 SPIDER_MODULES = ['spycraw.spiders']
 NEWSPIDER_MODULE = 'spycraw.spiders'
 
@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'spycraw.spiders'
 #USER_AGENT = 'spycraw (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -66,7 +66,8 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'spycraw.pipelines.MongoPipeline': 300,
+   # 'spycraw.pipelines.MongoPipeline': 300,
+    'spycraw.pipelines.FilePipeline': 300
 }
 MONGO_URI = "127.0.0.1:27017"
 MONGO_DATABASE = "quibai"

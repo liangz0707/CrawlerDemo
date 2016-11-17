@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# Define here the models for your scraped items
-#
-# See documentation in:
-# http://doc.scrapy.org/en/latest/topics/items.html
+'''
+这里主要用来，定义爬虫抛出的待处理数据
+'''
 
 import scrapy
 
 class SpycrawItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    a = scrapy.Field()
-    b = scrapy.Field()
+    title = scrapy.Field()
+    link = scrapy.Field()

@@ -21,6 +21,11 @@ class RanodomUAMiddleware(object):
     def process_request(self,request,spider):
         request.headers["User-Agent"] = random.choice(USER_AGENTS)
 
+
 class PrintUAMiddleware(object):
     def process_request(self,request,spider):
         print request.headers["User-Agent"]
+
+    def process_response(self,request, response,spider):
+        #print response.headers
+        return response

@@ -29,3 +29,18 @@ class MongoPipeline(object):
         collection_name = item.__class__.__name__
         self.db[collection_name].insert(dict(item))
         return item
+
+
+class FilePipeline(object):
+    def open_spider(self, spider):
+        self.file = open("spidercontent.txt", "w")
+
+    def close_spider(self, spider):
+        self.file.close()
+
+    def process_item(self, item, spider):
+        self.file.write(item['title'].encode('utf-8'))
+        self.file.write('\t')
+        self.file.write(item['link'].encode('utf-8'))
+        self.file.write('\n')
+        return item
